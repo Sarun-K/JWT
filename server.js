@@ -3,6 +3,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 var mongoose = require("mongoose");
+var bodyParser = require('body-parser');
 
 const mongoURI = 'mongodb://localhost:27017/JWT-NodeJs';
 var mongoose = require("mongoose");
