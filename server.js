@@ -27,8 +27,9 @@ router.get('/', function(req, res) {
 ///// API
 ///////////////////////////////////////////////
 
+router.use('/test', require('./routes/test')); // test route
 router.use('/users', require('./routes/user')); // register, auth
-router.use('/test', require('./routes/test'));
+
 
 // console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));

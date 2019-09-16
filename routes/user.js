@@ -4,6 +4,7 @@ const user = require('../controller/user');
 
 
 router.post('/register', user.create);
+router.post('/authenticate', user.authenticate);
 
 router.route('/get').get(user.fech);
 
