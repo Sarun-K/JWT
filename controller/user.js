@@ -10,10 +10,8 @@ module.exports = {
          username: req.body.username, 
          email: req.body.email, 
          password: req.body.password,
-         role: req.body.role,
          firstname: req.body.firstname,
          lastname: req.body.lastname,
-         areaCode: req.body.areaCode,
       
       }, function (err, result) {
       if (err) 
@@ -38,7 +36,7 @@ authenticate: function(req, res, next) {
         
          if(bcrypt.compareSync(req.body.password, userInfo.password)) {
 
-            const token = jwt.sign({id: userInfo._id, role: userInfo.role}, 
+            const token = jwt.sign({id: userInfo._id}, 
             req.app.get('secretKey'), { expiresIn: '1h' });
             res.json({status:"success", message: "user found!!!", data:{user: userInfo, token:token}});
 
