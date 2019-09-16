@@ -49,5 +49,13 @@ authenticate: function(req, res, next) {
      }
     });
  },
+ fech: function(req, res) {
+    userModel.find(function(err, test) {
+         if (err)
+             res.send(err);
+ 
+         res.json(test);
+     });
+ },
 
 }

@@ -3,13 +3,13 @@ const app = express();
 const port = process.env.PORT || 5000;
 const logger = require('morgan');
 
-var mongoose = require("mongoose");
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var router = express.Router(); 
 
 const mongoURI = 'mongodb://localhost:27017/JWT-NodeJs';
 var mongoose = require("mongoose");
+mongoose.connect(mongoURI);
 
 app.set('secretKey', 'jwt-nodejs-test'); // jwt secret token
 app.use(cors());
@@ -22,11 +22,13 @@ router.get('/', function(req, res) {
     res.json({ message: 'hooray! welcome to our api!' });   
 });
 
-// console.log that your server is up and running
-app.listen(port, () => console.log(`Listening on port ${port}`));
 
 ///////////////////////////////////////////////
 ///// API
 ///////////////////////////////////////////////
 
-router.use('/users', require('./routes/user')); // register auth
+router.use('/users', require('./routes/user')); // register, auth
+router.use('/test', require('./routes/test'));
+
+// console.log that your server is up and running
+app.listen(port, () => console.log(`Listening on port ${port}`));

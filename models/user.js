@@ -16,18 +16,11 @@ const UserSchema = new Schema({
           type: String,
           lowercase: true
         },
-        role: {
-          type: String,
-          enum: ["admin", "user"],
-          default: "user"
-        },
         password: {
           type: String
         },
         firstname: String,
         lastname: String,
-
-        areaCode: String,
         createdAt: {
           type: Date,
           default: Date.now
