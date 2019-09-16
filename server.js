@@ -28,3 +28,5 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 ///////////////////////////////////////////////
 ///// API
 ///////////////////////////////////////////////
+
+router.use('/users', require('./routes/user')); // register auth
